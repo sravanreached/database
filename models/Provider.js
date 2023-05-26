@@ -50,11 +50,11 @@ var ProviderSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    Currency:{
+    Currency: {
         type: String,
         required: false
     },
-    CurrencySymbol:{
+    CurrencySymbol: {
         type: String,
         required: false
     },
@@ -66,11 +66,15 @@ var ProviderSchema = mongoose.Schema({
     Location: {
         type: { type: String },
         coordinates: [Number],
-      },
+    },
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false

@@ -26,10 +26,14 @@ var AdminSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false

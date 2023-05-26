@@ -5,11 +5,11 @@ var Provider_Parking_Floor_EntryExit = mongoose.Schema({
     ProviderId: {
         type: String,
         required: true
-        },
+    },
     FloorId: {
-            type: String,
-            required: true
-            },
+        type: String,
+        required: true
+    },
     TypeOfGate: {
         type: String,
         required: true
@@ -18,10 +18,14 @@ var Provider_Parking_Floor_EntryExit = mongoose.Schema({
         type: String,
         required: true
     },
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false

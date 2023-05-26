@@ -49,6 +49,10 @@ var userSchema = mongoose.Schema({
             Upi:{ type: String}
         }
     ],
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
     }, 

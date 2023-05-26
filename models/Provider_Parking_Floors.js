@@ -2,10 +2,10 @@
 var mongoose = require('mongoose');
 // Setup schema
 var Provider_Parking_Floors = mongoose.Schema({
-    ProviderId:{
+    ProviderId: {
         type: String,
         required: true
-        },
+    },
     FloorName: {
         type: String,
         required: true
@@ -26,10 +26,14 @@ var Provider_Parking_Floors = mongoose.Schema({
         type: String,
         required: false
     },
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false

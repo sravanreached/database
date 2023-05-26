@@ -5,11 +5,11 @@ var Provider_Parking_Price_Details = mongoose.Schema({
     ProviderId: {
         type: String,
         required: true
-        },
+    },
     FloorId: {
         type: String,
-            required: true
-            },
+        required: true
+    },
     Time: {
         type: Number,
         required: true
@@ -18,10 +18,14 @@ var Provider_Parking_Price_Details = mongoose.Schema({
         type: Number,
         required: true
     },
+    Status: {
+        type: Boolean,
+        default: true
+    },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false

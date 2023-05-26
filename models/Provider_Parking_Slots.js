@@ -5,15 +5,15 @@ var Provider_Parking_Slots = mongoose.Schema({
     ProviderId: {
         type: String,
         required: true
-        },
+    },
     FloorId: {
-            type: String,
-            required: true
-            },
+        type: String,
+        required: true
+    },
     SlotMarkerId: {
-                type: String,
-                required: true
-                },
+        type: String,
+        required: true
+    },
     SlotCode: {
         type: String,
         required: true
@@ -27,13 +27,13 @@ var Provider_Parking_Slots = mongoose.Schema({
         required: true
     },
     Status: {
-        type: String,
-        required: false
+        type: Boolean,
+        default: true
     },
     Createdby: {
         type: String,
         required: false
-    }, 
+    },
     Modifiedby: {
         type: String,
         required: false
