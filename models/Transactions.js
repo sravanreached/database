@@ -3,46 +3,46 @@ var mongoose = require('mongoose');
 // Setup schema
 const transactionSchema = new mongoose.Schema({
     RazorpayPaymentId: {
-      type: String,
+        type: String,
     },
     RazorpayOrderId: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     Amount: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     Currency: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     Method: {
-      type: String,
+        type: String,
     },
     Email: {
-      type: String,
+        type: String,
     },
-    Contact:{
-      type: String,
+    Contact: {
+        type: String,
     },
     RazorpayStatus: {
-      type: String,
-      required: true,
+        type: String,
+        required: true,
     },
     Createdby: {
         type: String,
-    }, 
+    },
     Modifiedby: {
         type: String,
     },
-},{
+}, {
     timestamps: {
         createdAt: 'Created_date',
         updatedAt: 'Modified_date',
     },
     toJSON: {
-        transform(doc, ret){
+        transform(doc, ret) {
             delete ret.__v;
             delete ret.Created_date;
             delete ret.Modified_date;
@@ -50,10 +50,6 @@ const transactionSchema = new mongoose.Schema({
             delete ret.Modifiedby;
         }
     },
-});
-
-transactionSchema.index({
-    Createdby: 1,
 });
 
 module.exports = mongoose.model('Transaction', transactionSchema);

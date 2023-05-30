@@ -1,7 +1,10 @@
-// User Model.js
 var mongoose = require('mongoose');
 // Setup schema
-var userSchema = mongoose.Schema({
+var gatemanSchema = mongoose.Schema({
+    ProviderId: {
+        type: String,
+        required: true,
+    },
     FirstName: {
         type: String,
         trim: true,
@@ -19,16 +22,9 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    OTP: {
+    Password: {
         type: String,
         required: true
-    },
-    IsOTP_verifed: {
-        type: Boolean,
-        default: false
-    },
-    Expire_otp: {
-        type: Date,
     },
     Role: {
         type: String,
@@ -37,18 +33,6 @@ var userSchema = mongoose.Schema({
     Photo: {
         type: String
     },
-    Wallet_balance: {
-        type: Number,
-        default: 0,
-    },
-    Card_details: [
-        {
-            Card_no: { type: String },
-            Expire_date: { type: String },
-            Card_holder_name: { type: String },
-            Upi: { type: String }
-        }
-    ],
     IsActive: {
         type: Boolean,
         default: true
@@ -72,11 +56,9 @@ var userSchema = mongoose.Schema({
     },
     toJSON: {
         transform(doc, ret) {
-            delete ret.OTP;
-            delete ret.IsOTP_verifed;
-            delete ret.Expire_otp;
-            delete ret.Role;
+            delete ret.Password;
             delete ret.IsActive;
+            delete ret.Role;
             delete ret.__v;
             delete ret.Created_date;
             delete ret.Modified_date;
@@ -88,7 +70,8 @@ var userSchema = mongoose.Schema({
     },
 });
 
-userSchema.index({ Email: 1 }, { unique: 1 });
-userSchema.index({ Mobile: 1 }, { unique: 1 });
+gatemanSchema.index({ Mobile: 1 }, { unique: 1 });
+gatemanSchema.index({ Email: 1 }, { unique: 1 });
+
 // Export Admin model
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Gateman', gatemanSchema);

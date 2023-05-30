@@ -26,7 +26,22 @@ var AdminSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    Status: {
+    Photo: {
+        type: String
+    },
+    Wallet_balance: {
+        type: Number,
+        default: 0,
+    },
+    Card_details: [
+        {
+            Card_no: { type: String },
+            Expire_date: { type: String },
+            Card_holder_name: { type: String },
+            Upi: { type: String }
+        }
+    ],
+    IsActive: {
         type: Boolean,
         default: true
     },
@@ -38,20 +53,37 @@ var AdminSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    Modified_date: {
-        type: Date,
-        default: new Date(new Date().toUTCString())
-    },
-    Created_date: {
-        type: Date,
-        default: new Date(new Date().toUTCString())
-    },
     LastLoggedIn_date: {
         type: Date
     },
     LastLoggedOut_date: {
         type: Date
     },
+}, {
+    timestamps: {
+        createdAt: 'Created_date',
+        updatedAt: 'Modified_date',
+    },
+    toJSON: {
+        transform(doc, ret) {
+            delete ret.OTP;
+            delete ret.IsOTP_verifed;
+            delete ret.IsEmail_verifed;
+            delete ret.Expire_otp;
+            delete ret.IsActive;
+            delete ret.Role;
+            delete ret.__v;
+            delete ret.Created_date;
+            delete ret.Modified_date;
+            delete ret.Createdby;
+            delete ret.Modifiedby;
+            delete ret.LastLoggedIn_date;
+            delete ret.LastLoggedOut_date;
+        }
+    },
 });
+
+AdminSchema.index({ Email: 1 }, { unique: 1 });
+AdminSchema.index({ Mobile: 1 }, { unique: 1 });
 // Export Admin model
 var Admin = module.exports = mongoose.model('Admin', AdminSchema);

@@ -3,63 +3,63 @@ var mongoose = require('mongoose');
 // Setup schema
 var bookingSchema = mongoose.Schema({
 
-    Provider_name: { 
-        type: String, 
+    Provider_name: {
+        type: String,
         required: true,
     },
-    Providerid: { 
-        type: String, 
+    Providerid: {
+        type: String,
         required: true,
     },
-    Address: { 
-        type: String, 
+    Address: {
+        type: String,
         required: true,
     },
     Ticket_number: {
-        type: String, 
+        type: String,
         required: true,
     },
     Ticket_type: {
         type: String,
-        enum: ['DAILY','WEEKLY', 'MONTHLY'],
+        enum: ['DAILY', 'WEEKLY', 'MONTHLY'],
         default: 'DAILY'
     },
-    Slotid: { 
-        type: String, 
+    Slotid: {
+        type: String,
         required: true,
     },
-    Slot: { 
-        type: String, 
+    Slot: {
+        type: String,
         required: true,
     },
-    Floorid: { 
-        type: String, 
+    Floorid: {
+        type: String,
         required: true,
     },
-    Floor: { 
-        type: String, 
+    Floor: {
+        type: String,
         required: true,
     },
     Selected_time: {
-        type: Number, 
+        type: Number,
         required: true,
     },
     Expaired_at: {
         type: Date,
         required: true,
     },
-    CheckIn: { 
-        type: Date, 
+    CheckIn: {
+        type: Date,
     },
-    CheckOut: { 
+    CheckOut: {
         type: Date,
     },
     Service: [{
-        serviceid: {type: String},
-        name: {type: String},
-        price: {type: Number}
+        serviceid: { type: String },
+        name: { type: String },
+        price: { type: Number }
     }],
-    Parking_fair: { 
+    Parking_fair: {
         type: Number,
         default: 0,
     },
@@ -67,28 +67,28 @@ var bookingSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
-    Status:{
+    Status: {
         type: String,
-        enum: ['BOOKED','PARKED', 'EXPIRED','FAILED'],
+        enum: ['BOOKED', 'PARKED', 'EXPIRED', 'FAILED'],
         default: 'BOOKED'
     },
-    IsExtended:{
+    IsExtended: {
         type: Boolean,
         default: false,
     },
     Createdby: {
         type: String,
-    }, 
+    },
     Modifiedby: {
         type: String,
     },
-},{
+}, {
     timestamps: {
         createdAt: 'Created_date',
         updatedAt: 'Modified_date',
     },
     toJSON: {
-        transform(doc, ret){
+        transform(doc, ret) {
             delete ret.__v;
             delete ret.Created_date;
             delete ret.Modified_date;
