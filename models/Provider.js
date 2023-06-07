@@ -30,6 +30,10 @@ var ProviderSchema = mongoose.Schema({
         type: String,
         required: false
     },
+    currentLocation: {
+        type: String,
+        required: true
+    },
     AreaLocalityBuildingNumber: {
         type: String,
         required: false
@@ -50,15 +54,6 @@ var ProviderSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    Currency: {
-        type: String,
-        required: false
-    },
-    CurrencySymbol: {
-        type: String,
-        required: false
-    },
-
     Pincode: {
         type: String,
         required: false

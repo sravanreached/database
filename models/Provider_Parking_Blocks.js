@@ -1,7 +1,7 @@
 // Provider_Parking_SlotsMarker.js
 var mongoose = require('mongoose');
 // Setup schema
-var Provider_Parking_SlotsMarker = mongoose.Schema({
+var Provider_Parking_Blocks = mongoose.Schema({
     ProviderId: {
         type: String,
         required: true
@@ -10,9 +10,9 @@ var Provider_Parking_SlotsMarker = mongoose.Schema({
         type: String,
         required: true
     },
-    SlotCode: {
+    BlockName: {
         type: String,
-        required: true
+        required: true,
     },
     Start: {
         type: Number,
@@ -43,5 +43,5 @@ var Provider_Parking_SlotsMarker = mongoose.Schema({
         default: new Date(new Date().toUTCString())
     }
 });
-// Export Provider_Parking_SlotsMarker model
-var Provider_Parking_SlotsMarker = module.exports = mongoose.model('Provider_Parking_SlotsMarker', Provider_Parking_SlotsMarker);
+// Export Provider_Parking_Blocks model
+var Provider_Parking_Blocks = module.exports = mongoose.model('Provider_Parking_Blocks', Provider_Parking_Blocks);

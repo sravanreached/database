@@ -18,7 +18,7 @@ var Provider_Parking_Floors = mongoose.Schema({
         type: Number,
         required: false
     },
-    Order: {
+    NoOfBlocks: {
         type: Number,
         required: false
     },
