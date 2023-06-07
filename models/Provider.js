@@ -12,6 +12,7 @@ var ProviderSchema = mongoose.Schema({
     },
     Email: {
         type: String,
+        trim: true,
         required: false
     },
     Mobile: {
@@ -30,7 +31,7 @@ var ProviderSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    currentLocation: {
+    CurrentLocation: {
         type: String,
         required: true
     },
